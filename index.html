@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0f0d0d" />
+    <title>Soirée retour Julian · Photos</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎉%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        --bg: #0f0d0d;
+        --panel: #1a1616;
+        --line: #2b2525;
+        --text: #f3ede8;
+        --muted: #a1928b;
+        --accent: #f0a35a;
+        --accent-ink: #1a1000;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        color-scheme: dark;
+        background: var(--bg);
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          15px/1.45 system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: rgba(15, 13, 13, 0.86);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+      .bar {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand {
+        margin-right: auto;
+        min-width: 0;
+      }
+      .brand h1 {
+        margin: 0;
+        font-size: 19px;
+        font-weight: 650;
+        letter-spacing: 0.2px;
+        line-height: 1.2;
+      }
+      .brand p {
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .zip {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: 999px;
+        padding: 8px 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        font-size: 14px;
+      }
+      .zip:hover {
+        border-color: var(--muted);
+      }
+      .zip small {
+        color: var(--muted);
+      }
+      @media (max-width: 520px) {
+        .zip small {
+          display: none;
+        }
+      }
+
+      main {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      .grid {
+        columns: 2;
+        column-gap: 8px;
+      }
+      @media (min-width: 640px) {
+        .grid {
+          columns: 3;
+          column-gap: 10px;
+        }
+      }
+      @media (min-width: 1000px) {
+        .grid {
+          columns: 4;
+          column-gap: 12px;
+        }
+      }
+      @media (min-width: 1400px) {
+        .grid {
+          columns: 5;
+        }
+      }
+      .ph {
+        display: block;
+        break-inside: avoid;
+        margin: 0 0 8px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--panel);
+        position: relative;
+        cursor: zoom-in;
+      }
+      @media (min-width: 640px) {
+        .ph {
+          margin-bottom: 10px;
+        }
+      }
+      @media (min-width: 1000px) {
+        .ph {
+          margin-bottom: 12px;
+        }
+      }
+      .ph img {
+        display: block;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.35s;
+      }
+      .ph img.ok {
+        opacity: 1;
+      }
+      .ph:hover img {
+        filter: brightness(1.06);
+      }
+      .ph .n {
+        position: absolute;
+        left: 8px;
+        bottom: 6px;
+        font-size: 11px;
+        color: #fff;
+        opacity: 0;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        transition: opacity 0.15s;
+      }
+      .ph:hover .n {
+        opacity: 0.9;
+      }
+
+      footer {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 24px 16px 48px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* visionneuse */
+      .lb {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        background: #000;
+        display: none;
+        flex-direction: column;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      .lb.on {
+        display: flex;
+      }
+      .lb .top {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: max(8px, env(safe-area-inset-top)) 10px 8px;
+        flex: 0 0 auto;
+      }
+      .lb .cnt {
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+        margin-right: auto;
+        font-size: 14px;
+        padding-left: 4px;
+      }
+      .ib {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        border-radius: 999px;
+        height: 36px;
+        padding: 0 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+      .ib:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .ib.pri {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--accent-ink);
+        font-weight: 600;
+      }
+      .ib.pri:hover {
+        filter: brightness(1.06);
+      }
+      .ib.icon {
+        width: 36px;
+        padding: 0;
+        justify-content: center;
+      }
+      .lb .stage {
+        flex: 1 1 auto;
+        position: relative;
+        min-height: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lb .stage img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        -webkit-touch-callout: default;
+      }
+      .lb .nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 64px;
+        border: 0;
+        background: rgba(0, 0, 0, 0.35);
+        color: #fff;
+        font-size: 26px;
+        cursor: pointer;
+        border-radius: 12px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (hover: hover) {
+        .lb .nav {
+          display: flex;
+          opacity: 0;
+          transition: opacity 0.15s;
+        }
+        .lb .stage:hover .nav {
+          opacity: 0.9;
+        }
+      }
+      .lb .prev {
+        left: 10px;
+      }
+      .lb .next {
+        right: 10px;
+      }
+      .lb .hint {
+        flex: 0 0 auto;
+        text-align: center;
+        color: var(--muted);
+        font-size: 12px;
+        padding: 8px 12px max(10px, env(safe-area-inset-bottom));
+      }
+      .lb .spin {
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: sp 0.8s linear infinite;
+        display: none;
+      }
+      .lb.loading .spin {
+        display: block;
+      }
+      @keyframes sp {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="bar">
+        <div class="brand">
+          <h1>Soirée retour Julian</h1>
+          <p id="sub">Photos · regarde, choisis, télécharge</p>
+        </div>
+        <a class="zip" href="zips/soiree-retour-julian-photos.zip" download
+          >⬇ Tout télécharger <small>ZIP · 22 Mo</small></a
+        >
+      </div>
+    </header>
+
+    <main>
+      <div class="grid" id="grid"></div>
+    </main>
+
+    <footer>
+      Appuie sur une photo pour l'agrandir, puis télécharge-la. Sur iPhone :
+      maintiens le doigt sur la photo → « Enregistrer dans Photos ». Le ZIP
+      s'ouvre dans Fichiers : sélectionne les photos → Partager → Enregistrer
+      les images.
+    </footer>
+
+    <div
+      class="lb"
+      id="lb"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Visionneuse"
+    >
+      <div class="top">
+        <span class="cnt" id="cnt"></span>
+        <a class="ib pri" id="dlone" href="#" download>⬇ Télécharger</a>
+        <button type="button" class="ib icon" id="close" aria-label="Fermer">
+          ✕
+        </button>
+      </div>
+      <div class="stage" id="stage">
+        <div class="spin"></div>
+        <img id="big" alt="" />
+        <button
+          type="button"
+          class="nav prev"
+          id="prev"
+          aria-label="Précédente"
+        >
+          ‹
+        </button>
+        <button type="button" class="nav next" id="next" aria-label="Suivante">
+          ›
+        </button>
+      </div>
+      <div class="hint" id="hint"></div>
+    </div>
+
+    <script src="photos.js"></script>
+    <script>
+      (function () {
+        const $ = (s) => document.querySelector(s);
+        const grid = $("#grid"),
+          lb = $("#lb"),
+          big = $("#big"),
+          cnt = $("#cnt"),
+          dlone = $("#dlone"),
+          hint = $("#hint");
+        const touch = () => matchMedia("(hover:none)").matches;
+        let cur = -1;
+
+        $("#sub").textContent =
+          `${PHOTOS.length} photos · regarde, choisis, télécharge`;
+
+        PHOTOS.forEach((p, i) => {
+          const a = document.createElement("a");
+          a.className = "ph";
+          a.href = "#" + p.id;
+          a.dataset.i = i;
+          a.innerHTML = `<img loading="lazy" decoding="async" width="${p.w}" height="${p.h}" alt=""><span class="n">${i + 1}</span>`;
+          const img = a.firstChild;
+          img.src = `t/${p.id}.jpg`;
+          img.onload = () => img.classList.add("ok");
+          if (img.complete && img.naturalWidth) img.classList.add("ok");
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            open(i);
+          });
+          grid.appendChild(a);
+        });
+
+        function open(i) {
+          cur = i;
+          lb.classList.add("on");
+          document.body.style.overflow = "hidden";
+          show(i);
+          history.replaceState(null, "", "#" + PHOTOS[i].id);
+        }
+        function close() {
+          lb.classList.remove("on");
+          document.body.style.overflow = "";
+          cur = -1;
+          history.replaceState(null, "", location.pathname);
+        }
+        function show(i) {
+          const p = PHOTOS[i];
+          cnt.textContent = `${i + 1} / ${PHOTOS.length}`;
+          lb.classList.add("loading");
+          big.src = `r/${p.id}.jpg`;
+          big.onload = () => lb.classList.remove("loading");
+          dlone.href = `r/${p.id}.jpg`;
+          dlone.download = `${p.id}.jpg`;
+          hint.textContent = touch()
+            ? "Maintiens le doigt sur la photo → « Enregistrer dans Photos ». Glisse pour passer à la suivante."
+            : "← → pour naviguer · Échap pour fermer";
+          [i + 1, i - 1].forEach((j) => {
+            if (PHOTOS[j]) {
+              const im = new Image();
+              im.src = `r/${PHOTOS[j].id}.jpg`;
+            }
+          });
+        }
+        const step = (d) => {
+          if (cur < 0) return;
+          cur = (cur + d + PHOTOS.length) % PHOTOS.length;
+          show(cur);
+          history.replaceState(null, "", "#" + PHOTOS[cur].id);
+        };
+        $("#prev").addEventListener("click", () => step(-1));
+        $("#next").addEventListener("click", () => step(1));
+        $("#close").addEventListener("click", close);
+        document.addEventListener("keydown", (e) => {
+          if (!lb.classList.contains("on")) return;
+          if (e.key === "Escape") close();
+          if (e.key === "ArrowRight") step(1);
+          if (e.key === "ArrowLeft") step(-1);
+        });
+
+        let tx = 0,
+          ty = 0,
+          t0 = 0;
+        const stage = $("#stage");
+        stage.addEventListener(
+          "touchstart",
+          (e) => {
+            const t = e.touches[0];
+            tx = t.clientX;
+            ty = t.clientY;
+            t0 = Date.now();
+          },
+          { passive: true },
+        );
+        stage.addEventListener(
+          "touchend",
+          (e) => {
+            const t = e.changedTouches[0],
+              dx = t.clientX - tx,
+              dy = t.clientY - ty;
+            if (
+              Date.now() - t0 < 600 &&
+              Math.abs(dx) > 50 &&
+              Math.abs(dx) > Math.abs(dy) * 1.5
+            )
+              step(dx < 0 ? 1 : -1);
+          },
+          { passive: true },
+        );
+        stage.addEventListener("click", (e) => {
+          if (e.target === stage) close();
+        });
+
+        const h = location.hash.slice(1);
+        if (h) {
+          const i = PHOTOS.findIndex((p) => p.id === h);
+          if (i >= 0) open(i);
+        }
+      })();
+    </script>
+  </body>
+</html>

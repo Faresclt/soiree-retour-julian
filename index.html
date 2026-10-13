@@ -330,8 +330,8 @@
           <h1>Soirée retour Julian</h1>
           <p id="sub">Photos · regarde, choisis, télécharge</p>
         </div>
-        <a class="zip" href="zips/soiree-retour-julian-photos.zip?v=20261013" download
-          >⬇ Tout télécharger <small>ZIP · 44 Mo</small></a
+        <a class="zip" href="zips/soiree-retour-julian-photos.zip?v=20261013-selection" download
+          >⬇ Tout télécharger <small>ZIP · 40 Mo</small></a
         >
       </div>
     </header>
@@ -379,7 +379,7 @@
       <div class="hint" id="hint"></div>
     </div>
 
-    <script src="photos.js?v=20261013"></script>
+    <script src="photos.js?v=20261013-selection"></script>
     <script>
       (function () {
         const $ = (s) => document.querySelector(s);
@@ -402,7 +402,7 @@
           a.dataset.i = i;
           a.innerHTML = `<img loading="lazy" decoding="async" width="${p.w}" height="${p.h}" alt=""><span class="n">${i + 1}</span>`;
           const img = a.firstChild;
-          img.src = `t/${p.id}.jpg?v=20261013`;
+          img.src = `t/${p.id}.jpg?v=20261013-selection`;
           img.onload = () => img.classList.add("ok");
           if (img.complete && img.naturalWidth) img.classList.add("ok");
           a.addEventListener("click", (e) => {
@@ -429,9 +429,9 @@
           const p = PHOTOS[i];
           cnt.textContent = `${i + 1} / ${PHOTOS.length}`;
           lb.classList.add("loading");
-          big.src = `r/${p.id}.jpg?v=20261013`;
+          big.src = `r/${p.id}.jpg?v=20261013-selection`;
           big.onload = () => lb.classList.remove("loading");
-          dlone.href = `r/${p.id}.jpg?v=20261013`;
+          dlone.href = `r/${p.id}.jpg?v=20261013-selection`;
           dlone.download = `${p.id}.jpg`;
           hint.textContent = touch()
             ? "Maintiens le doigt sur la photo → « Enregistrer dans Photos ». Glisse pour passer à la suivante."
@@ -439,7 +439,7 @@
           [i + 1, i - 1].forEach((j) => {
             if (PHOTOS[j]) {
               const im = new Image();
-              im.src = `r/${PHOTOS[j].id}.jpg?v=20261013`;
+              im.src = `r/${PHOTOS[j].id}.jpg?v=20261013-selection`;
             }
           });
         }
